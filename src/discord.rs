@@ -1,5 +1,5 @@
 use discord_rich_presence::{
-    activity::{Activity, Assets, Button, Timestamps},
+    activity::{Activity,ActivityType, Assets, Button, Timestamps},
     DiscordIpc, DiscordIpcClient,
 };
 use std::{thread::sleep, time::Duration};
@@ -129,6 +129,7 @@ impl Discord {
                     .small_image("trakt")
                     .small_text("Discrakt"),
             )
+            .activity_type(ActivityType::Watching)
             .timestamps(
                 Timestamps::new()
                     .start(watch_time.start_date.timestamp())
